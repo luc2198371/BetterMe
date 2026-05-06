@@ -293,7 +293,89 @@ export type FinancePageData = {
   };
   insights: string[];
 };
-export type RelationshipsPageData = PhaseTwoPlaceholderData;
+export type RelationshipsPageData = {
+  header: {
+    eyebrow: string;
+    title: string;
+    dateLabel: string;
+    description: string;
+    actionLabel: string;
+  };
+  overview: Array<{
+    label: string;
+    value: string;
+    detail: string;
+    tone: "accent" | "foreground" | "muted";
+  }>;
+  importantPeople: Array<{
+    name: string;
+    role: string;
+    group: "Family" | "Friend" | "Mentor";
+    lastTalked: string;
+    nextCheckIn: string;
+    whyTheyMatter: string;
+    privateNote: string;
+  }>;
+  family: Array<{
+    name: string;
+    relationship: string;
+    lastTalked: string;
+    nextAction: string;
+    sharedMemory: string;
+  }>;
+  friends: Array<{
+    name: string;
+    rhythm: string;
+    lastTalked: string;
+    nextAction: string;
+    note: string;
+  }>;
+  mentors: Array<{
+    name: string;
+    lesson: string;
+    lastContact: string;
+    nextThoughtfulAction: string;
+  }>;
+  checkOn: Array<{
+    name: string;
+    reason: string;
+    suggestedAction: string;
+    timing: string;
+  }>;
+  birthdays: Array<{
+    name: string;
+    date: string;
+    plan: string;
+  }>;
+  lastTalked: Array<{
+    name: string;
+    date: string;
+    context: string;
+  }>;
+  sharedMemories: Array<{
+    title: string;
+    people: string;
+    date: string;
+    meaning: string;
+  }>;
+  lessons: Array<{
+    person: string;
+    lesson: string;
+    howItChangedMe: string;
+  }>;
+  goals: Array<{
+    title: string;
+    status: string;
+    progress: number;
+    why: string;
+    nextAction: string;
+  }>;
+  reconnectReminders: Array<{
+    name: string;
+    reminder: string;
+    nextStep: string;
+  }>;
+};
 export type TravelMemoriesPageData = PhaseTwoPlaceholderData;
 export type FutureSelfPageData = PhaseTwoPlaceholderData;
 export type YearInReviewPageData = PhaseTwoPlaceholderData;
