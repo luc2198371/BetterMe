@@ -1,65 +1,225 @@
-import Image from "next/image";
+import { dashboard } from "@/data/mock/life-os";
+import { Card, SectionLabel } from "@/components/ui";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <header className="mb-8 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div className="max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-normal text-muted">
+            {dashboard.welcome.eyebrow}
+          </p>
+          <h2 className="mt-3 font-mono text-[1.75rem] font-medium leading-tight text-foreground">
+            {dashboard.welcome.title}
+          </h2>
+          <p className="mt-3 font-mono text-xs text-muted">
+            {dashboard.welcome.dateLabel}
+          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-6 text-muted sm:text-[0.92rem]">
+            {dashboard.welcome.summary}
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        <button
+          type="button"
+          className="h-11 w-full rounded-md bg-accent px-5 font-mono text-xs text-on-primary transition hover:opacity-90 sm:w-auto"
+        >
+          {dashboard.welcome.checkInLabel}
+        </button>
+      </header>
+
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        {dashboard.metrics.map((metric) => (
+          <DashboardMetric key={metric.label} {...metric} />
+        ))}
+      </div>
+
+      <div className="mt-4 grid gap-4 xl:grid-cols-[1.15fr_0.85fr]">
+        <Card className="flex min-h-96 flex-col">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <SectionLabel>{dashboard.mainGoal.category}</SectionLabel>
+              <h3 className="mt-4 max-w-3xl font-mono text-2xl font-medium leading-snug text-foreground">
+                {dashboard.mainGoal.title}
+              </h3>
+            </div>
+            <div className="rounded-md border border-border px-4 py-3 text-right">
+              <p className="font-mono text-2xl font-medium text-foreground">
+                {dashboard.mainGoal.progress}%
+              </p>
+              <p className="mt-1 font-mono text-xs text-muted">progress</p>
+            </div>
+          </div>
+
+          <div className="mt-8 h-2 rounded-sm bg-background">
+            <div
+              className="h-full rounded-sm bg-foreground"
+              style={{ width: `${dashboard.mainGoal.progress}%` }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          </div>
+
+          <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            <DetailBlock label="Why it matters" text={dashboard.mainGoal.why} />
+            <DetailBlock
+              label="Next action"
+              text={dashboard.mainGoal.nextAction}
+            />
+            <DetailBlock label="Friction" text={dashboard.mainGoal.friction} />
+          </div>
+        </Card>
+
+        <Card className="min-h-96">
+          <SectionLabel>Latest journal entry</SectionLabel>
+          <div className="mt-4 flex flex-wrap items-center gap-3 font-mono text-xs text-muted">
+            <span>{dashboard.latestJournalEntry.date}</span>
+            <span>/</span>
+            <span>{dashboard.latestJournalEntry.mood}</span>
+          </div>
+          <h3 className="mt-5 font-mono text-xl font-medium text-foreground">
+            {dashboard.latestJournalEntry.title}
+          </h3>
+          <p className="mt-5 text-sm leading-6 text-muted">
+            {dashboard.latestJournalEntry.excerpt}
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            {dashboard.latestJournalEntry.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-sm border border-border px-2.5 py-1 font-mono text-xs text-muted"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-8 border-t border-border pt-5">
+            <SectionLabel>Reflection cue</SectionLabel>
+            <p className="mt-3 text-sm leading-6 text-foreground">
+              {dashboard.latestJournalEntry.prompt}
+            </p>
+          </div>
+        </Card>
+      </div>
+
+      <div className="mt-4 grid gap-4 xl:grid-cols-[0.85fr_1.15fr]">
+        <Card>
+          <SectionLabel>{dashboard.nextMilestone.category}</SectionLabel>
+          <p className="mt-4 font-mono text-xs text-muted">
+            {dashboard.nextMilestone.date}
+          </p>
+          <h3 className="mt-4 font-mono text-xl font-medium leading-snug text-foreground">
+            {dashboard.nextMilestone.title}
+          </h3>
+          <p className="mt-5 text-sm leading-6 text-muted">
+            {dashboard.nextMilestone.meaning}
+          </p>
+          <div className="mt-8 border-t border-border pt-5">
+            <SectionLabel>Next step</SectionLabel>
+            <p className="mt-3 text-sm leading-6 text-foreground">
+              {dashboard.nextMilestone.nextStep}
+            </p>
+          </div>
+        </Card>
+
+        <Card>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <SectionLabel>Weekly progress</SectionLabel>
+              <h3 className="mt-3 font-mono text-xl font-medium text-foreground">
+                The week is moving in the right direction.
+              </h3>
+            </div>
+            <p className="font-mono text-xs text-muted">5 core areas</p>
+          </div>
+
+          <div className="mt-7 space-y-5">
+            {dashboard.weeklyProgress.map((item, index) => (
+              <ProgressRow
+                key={item.label}
+                {...item}
+                emphasized={index === 0}
+              />
+            ))}
+          </div>
+        </Card>
+      </div>
+    </>
+  );
+}
+
+function DashboardMetric({
+  label,
+  value,
+  unit,
+  detail,
+  highlight,
+}: {
+  label: string;
+  value: string;
+  unit: string;
+  detail: string;
+  highlight: boolean;
+}) {
+  return (
+    <Card>
+      <SectionLabel>{label}</SectionLabel>
+      <p
+        className={`mt-4 font-mono text-3xl font-medium ${
+          highlight ? "text-accent" : "text-foreground"
+        }`}
+      >
+        {value}
+        {unit ? (
+          <span className="ml-1 text-base text-muted">{unit}</span>
+        ) : null}
+      </p>
+      <p className="mt-3 text-sm leading-6 text-muted">{detail}</p>
+    </Card>
+  );
+}
+
+function DetailBlock({ label, text }: { label: string; text: string }) {
+  return (
+    <div className="border-t border-border pt-4">
+      <SectionLabel>{label}</SectionLabel>
+      <p className="mt-3 text-sm leading-6 text-muted">{text}</p>
+    </div>
+  );
+}
+
+function ProgressRow({
+  label,
+  value,
+  detail,
+  emphasized,
+}: {
+  label: string;
+  value: number;
+  detail: string;
+  emphasized: boolean;
+}) {
+  return (
+    <div>
+      <div className="flex items-center justify-between gap-4">
+        <p className="font-mono text-sm text-foreground">{label}</p>
+        <p
+          className={`font-mono text-sm ${
+            emphasized ? "text-foreground" : "text-muted"
+          }`}
+        >
+          {value}%
+        </p>
+      </div>
+      <div className="mt-3 h-2 rounded-sm bg-background">
+        <div
+          className={`h-full rounded-sm ${
+            emphasized ? "bg-foreground" : "bg-muted"
+          }`}
+          style={{ width: `${value}%` }}
+        />
+      </div>
+      <p className="mt-2 text-sm leading-6 text-muted">{detail}</p>
     </div>
   );
 }
