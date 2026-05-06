@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BetterMe
 
-## Getting Started
+BetterMe is a private Personal Life OS dashboard built with Next.js App Router. It is designed as a calm, editor-like space for tracking daily discipline, reflecting on the past, and shaping a better future self.
 
-First, run the development server:
+The app currently uses mock data only. There is no backend, authentication, or database layer yet.
+
+## Features
+
+- Dashboard overview for life score, mood, energy, habits, gym streaks, goals, and recent reflections.
+- Daily tracking for mood, sleep, stress, focus, tasks, habits, water, workouts, gratitude, and lessons.
+- Personal systems for habits, goals, journal entries, life timeline, weekly review, and gym training.
+- Phase 2 areas for health, learning, finance, relationships, travel memories, future self, and year-in-review.
+
+## Project Structure
+
+- `app/` contains App Router pages, including the main dashboard and feature routes.
+- `components/` contains the shared shell and UI primitives.
+- `data/mock/` contains mock data for the current MVP and Phase 2 pages.
+- `lib/` contains small shared utilities.
+- `design.md`, `AGENTS.md`, and `AGENTS_Nextjs.md` define project, design, and Next.js working rules.
+
+## Local Development
+
+Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Start the development server with Webpack:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npx next dev --webpack
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Run ESLint:
 
-## Learn More
+```bash
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+Build with Webpack:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx next build --webpack
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The explicit Webpack commands are preferred in this Android/arm64 environment.
 
-## Deploy on Vercel
+## Design Direction
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Follow `design.md` exactly. The interface should stay dark, flat, dense, calm, personal, and editor-like.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Use only the existing palette:
+
+- `#161614` for the page background.
+- `#1D1D1B` for surfaces.
+- `#E5E4DF` for primary text.
+- `#7B7A74` for borders and muted text.
+- `#5FB5D6` as the single interaction accent.
+
+Use JetBrains Mono for headings, labels, stats, and controls. Use Inter for body copy. Do not add gradients, decorative visuals, extra accent colors, or unrelated UI libraries.
