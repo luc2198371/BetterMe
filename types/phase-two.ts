@@ -376,6 +376,182 @@ export type RelationshipsPageData = {
     nextStep: string;
   }>;
 };
-export type TravelMemoriesPageData = PhaseTwoPlaceholderData;
-export type FutureSelfPageData = PhaseTwoPlaceholderData;
+export type TravelMemoriesPageData = {
+  header: {
+    eyebrow: string;
+    title: string;
+    dateLabel: string;
+    description: string;
+    actionLabel: string;
+  };
+  overview: Array<{
+    label: string;
+    value: string;
+    detail: string;
+    tone: "accent" | "foreground" | "muted";
+  }>;
+  countriesVisited: Array<{
+    country: string;
+    visits: string;
+    firstVisited: string;
+    memory: string;
+  }>;
+  citiesLivedIn: Array<{
+    city: string;
+    years: string;
+    season: string;
+    lesson: string;
+  }>;
+  favoritePlaces: Array<{
+    name: string;
+    location: string;
+    feeling: string;
+    memory: string;
+  }>;
+  plannedTrips: Array<{
+    title: string;
+    window: string;
+    status: string;
+    intention: string;
+  }>;
+  bucketListDestinations: Array<{
+    destination: string;
+    reason: string;
+    firstStep: string;
+  }>;
+  memoryArchive: Array<{
+    title: string;
+    date: string;
+    place: string;
+    type: string;
+    meaning: string;
+  }>;
+  photoPlaceholders: Array<{
+    title: string;
+    date: string;
+    caption: string;
+  }>;
+  videoPlaceholders: Array<{
+    title: string;
+    duration: string;
+    caption: string;
+  }>;
+  letters: Array<{
+    title: string;
+    date: string;
+    recipient: string;
+    note: string;
+  }>;
+  voiceNotes: Array<{
+    title: string;
+    date: string;
+    length: string;
+    note: string;
+  }>;
+  favoriteQuotes: Array<{
+    quote: string;
+    source: string;
+    why: string;
+  }>;
+  importantMemories: Array<{
+    title: string;
+    date: string;
+    place: string;
+    whyItMatters: string;
+  }>;
+  onThisDay: {
+    date: string;
+    title: string;
+    place: string;
+    yearsAgo: string;
+    memory: string;
+  };
+  travelMap: {
+    title: string;
+    description: string;
+    markers: Array<{
+      label: string;
+      x: number;
+      y: number;
+      type: "visited" | "lived" | "planned" | "dream";
+    }>;
+  };
+};
+export type FutureSelfPageData = {
+  header: {
+    eyebrow: string;
+    title: string;
+    dateLabel: string;
+    description: string;
+    actionLabel: string;
+  };
+  overview: Array<{
+    label: string;
+    value: string;
+    detail: string;
+    tone: "accent" | "foreground" | "muted";
+  }>;
+  oneYearSelf: {
+    title: string;
+    identity: string;
+    habits: string[];
+    evidence: string;
+    nextAction: string;
+  };
+  fiveYearSelf: {
+    title: string;
+    identity: string;
+    capabilities: string[];
+    environment: string;
+    nextAction: string;
+  };
+  tenYearVision: {
+    title: string;
+    identity: string;
+    lifeShape: string;
+    contribution: string;
+    nonNegotiable: string;
+  };
+  idealDay: Array<{
+    time: string;
+    title: string;
+    detail: string;
+  }>;
+  dreamLifestyle: Array<{
+    title: string;
+    detail: string;
+  }>;
+  coreValues: Array<{
+    value: string;
+    definition: string;
+    practice: string;
+  }>;
+  personalRules: Array<{
+    rule: string;
+    reason: string;
+  }>;
+  personToBecome: {
+    title: string;
+    statement: string;
+    traits: Array<{
+      label: string;
+      detail: string;
+    }>;
+  };
+  letterToFutureMe: {
+    date: string;
+    title: string;
+    body: string;
+  };
+  letterFromPastMe: {
+    date: string;
+    title: string;
+    body: string;
+  };
+  legacyStatement: {
+    title: string;
+    statement: string;
+    proof: string[];
+  };
+};
 export type YearInReviewPageData = PhaseTwoPlaceholderData;
