@@ -371,6 +371,155 @@ export const goals = [
   },
 ];
 
+export const goalsDashboard = {
+  header: {
+    eyebrow: "Direction",
+    title: "Goals",
+    dateLabel: "Wednesday, May 6 / horizon review",
+    description:
+      "A structured read on what matters now, what is coming soon, what belongs to the future, and what still deserves to be held as a dream.",
+    actionLabel: "Review goals",
+  },
+  groups: [
+    {
+      horizon: "Now",
+      summary: "Active goals that shape this week and need visible movement.",
+      goals: [
+        {
+          title: "Build a stronger body",
+          category: "Health",
+          whyItMatters:
+            "Strength makes the rest of life feel more capable, grounded, and self-respecting.",
+          deadline: "May 31, 2026",
+          progress: 62,
+          nextAction: "Complete the next lower body session and log the main lift.",
+          obstacles:
+            "Late nights and crowded afternoons make training easier to postpone.",
+          lessonsLearned:
+            "Simple sessions done consistently beat ambitious plans that depend on perfect energy.",
+          status: "On track",
+        },
+        {
+          title: "Protect one focused work block daily",
+          category: "Focus",
+          whyItMatters:
+            "The day feels honest when the most important work happens before noise takes over.",
+          deadline: "May 12, 2026",
+          progress: 76,
+          nextAction: "Choose tomorrow's first task before ending today.",
+          obstacles:
+            "Messages and small admin tasks create false urgency in the morning.",
+          lessonsLearned:
+            "A defined first task removes most of the friction from starting.",
+          status: "Active",
+        },
+      ],
+    },
+    {
+      horizon: "Soon",
+      summary: "Near-term systems that should become easier to repeat.",
+      goals: [
+        {
+          title: "Create a consistent life review system",
+          category: "Reflection",
+          whyItMatters:
+            "A repeatable review loop turns scattered effort into visible patterns and better choices.",
+          deadline: "June 15, 2026",
+          progress: 38,
+          nextAction: "Finish one full weekly review using the same prompts.",
+          obstacles:
+            "Too many prompts can make the review feel heavier than the benefit.",
+          lessonsLearned:
+            "Short reviews are more useful when they end with one constraint for the next week.",
+          status: "Building",
+        },
+        {
+          title: "Stabilize evening shutdown",
+          category: "Planning",
+          whyItMatters:
+            "A clean shutdown protects sleep, reduces morning friction, and keeps tomorrow clear.",
+          deadline: "June 30, 2026",
+          progress: 44,
+          nextAction: "Set a 10 minute shutdown block before the final screen session.",
+          obstacles:
+            "When the evening runs late, the habit feels optional and gets skipped.",
+          lessonsLearned:
+            "The shutdown works best as a small reset, not a full review.",
+          status: "Needs attention",
+        },
+      ],
+    },
+    {
+      horizon: "Future",
+      summary: "Longer commitments that need patience and steady evidence.",
+      goals: [
+        {
+          title: "Write a private autobiography",
+          category: "Identity",
+          whyItMatters:
+            "Writing the story clearly makes lessons, turning points, and values easier to understand.",
+          deadline: "December 31, 2026",
+          progress: 14,
+          nextAction: "Draft the outline for the first five life chapters.",
+          obstacles:
+            "The project can feel too large without a narrow chapter structure.",
+          lessonsLearned:
+            "Specific memories are easier to write than broad summaries.",
+          status: "Exploring",
+        },
+        {
+          title: "Build a durable personal operating system",
+          category: "Systems",
+          whyItMatters:
+            "A durable system keeps goals, habits, training, and reflection connected instead of scattered.",
+          deadline: "September 30, 2026",
+          progress: 27,
+          nextAction: "Connect weekly review insights back into goals and habits.",
+          obstacles:
+            "Too many dashboards can become another place to manage instead of a tool to think.",
+          lessonsLearned:
+            "The system is strongest when each page answers one practical question.",
+          status: "Shaping",
+        },
+      ],
+    },
+    {
+      horizon: "Dream",
+      summary: "Ambitions worth preserving even before they become active plans.",
+      goals: [
+        {
+          title: "Design a life with more location freedom",
+          category: "Freedom",
+          whyItMatters:
+            "More control over place and time creates room for deeper work, health, and relationships.",
+          deadline: "Open horizon",
+          progress: 9,
+          nextAction: "Define the minimum income, routine, and constraints for a trial month.",
+          obstacles:
+            "The dream is vague until the practical requirements are written down.",
+          lessonsLearned:
+            "Freedom needs structure first, otherwise it stays abstract.",
+          status: "Dreaming",
+        },
+        {
+          title: "Create work that compounds for years",
+          category: "Legacy",
+          whyItMatters:
+            "Compounding work creates value beyond daily output and reflects the person being built.",
+          deadline: "Open horizon",
+          progress: 6,
+          nextAction: "List three project ideas that could still matter in five years.",
+          obstacles:
+            "Short-term urgency can crowd out slow, meaningful creation.",
+          lessonsLearned:
+            "The best ideas usually connect skill, usefulness, and lived experience.",
+          status: "Incubating",
+        },
+      ],
+    },
+  ],
+};
+
 export const journalEntries = [
   {
     title: "What I noticed today",
@@ -385,6 +534,155 @@ export const journalEntries = [
       "Avoiding small discomfort creates larger pressure later. Start earlier.",
   },
 ];
+
+export const journalDashboard = {
+  header: {
+    eyebrow: "Reflection",
+    title: "Journal",
+    dateLabel: "Wednesday, May 6 / private archive",
+    description:
+      "Search, revisit, and mark the entries that explain the pattern behind the day.",
+    actionLabel: "New entry",
+  },
+  prompts: [
+    "What did I avoid today, and what did it cost?",
+    "Where did I act like the person I am trying to become?",
+    "What pattern showed up again?",
+    "What should tomorrow protect before anything else?",
+  ],
+  tags: [
+    "focus",
+    "discipline",
+    "self-awareness",
+    "training",
+    "recovery",
+    "planning",
+    "identity",
+  ],
+  moods: ["Reflective", "Focused", "Calm", "Heavy", "Clear"],
+  entries: [
+    {
+      id: "noticed-today",
+      title: "What I noticed today",
+      date: "May 6, 2026",
+      time: "07:15",
+      mood: "Reflective",
+      tags: ["focus", "discipline", "self-awareness"],
+      prompt: "What pattern did I interrupt today?",
+      excerpt:
+        "I work better when I start with one honest priority instead of a full list.",
+      body:
+        "I work better when I start with one honest priority instead of a full list. The day feels lighter when I decide what matters before reacting to noise. The pattern I interrupted was checking everything before choosing anything.",
+      favorite: true,
+      wordCount: 42,
+    },
+    {
+      id: "pattern-to-change",
+      title: "Pattern to change",
+      date: "May 5, 2026",
+      time: "21:40",
+      mood: "Focused",
+      tags: ["discipline", "planning"],
+      prompt: "What small discomfort did I delay?",
+      excerpt:
+        "Avoiding small discomfort creates larger pressure later. Start earlier.",
+      body:
+        "Avoiding small discomfort creates larger pressure later. Start earlier, while the work is still small enough to handle calmly. The evening showed me that waiting for the right mood is just another way to lose time.",
+      favorite: false,
+      wordCount: 37,
+    },
+    {
+      id: "training-after-work",
+      title: "Training after work",
+      date: "May 4, 2026",
+      time: "18:05",
+      mood: "Clear",
+      tags: ["training", "discipline", "recovery"],
+      prompt: "What helped me follow through?",
+      excerpt:
+        "The session happened because the plan was already decided before energy dropped.",
+      body:
+        "The session happened because the plan was already decided before energy dropped. I did not need to negotiate with myself. The lesson is to choose the minimum plan early, then let execution be almost boring.",
+      favorite: true,
+      wordCount: 36,
+    },
+    {
+      id: "quiet-morning",
+      title: "Quiet morning",
+      date: "May 3, 2026",
+      time: "08:20",
+      mood: "Calm",
+      tags: ["recovery", "self-awareness"],
+      prompt: "What made the morning feel steady?",
+      excerpt:
+        "Less input gave me more room to hear what I already knew needed attention.",
+      body:
+        "Less input gave me more room to hear what I already knew needed attention. The quiet did not solve anything by itself, but it made the next honest action visible. I want more mornings like this.",
+      favorite: false,
+      wordCount: 36,
+    },
+    {
+      id: "shutdown-worked",
+      title: "Shutdown worked",
+      date: "May 2, 2026",
+      time: "22:10",
+      mood: "Clear",
+      tags: ["planning", "focus"],
+      prompt: "What made tomorrow easier?",
+      excerpt:
+        "Writing tomorrow's first task removed a small but real layer of morning friction.",
+      body:
+        "Writing tomorrow's first task removed a small but real layer of morning friction. It took less than ten minutes. The value was not in planning the whole day, but in deciding where the first clean move begins.",
+      favorite: true,
+      wordCount: 39,
+    },
+    {
+      id: "heavy-afternoon",
+      title: "Heavy afternoon",
+      date: "May 1, 2026",
+      time: "16:35",
+      mood: "Heavy",
+      tags: ["recovery", "self-awareness"],
+      prompt: "What did my energy teach me?",
+      excerpt:
+        "The low-energy block was not laziness. It was a signal that recovery had been underpriced.",
+      body:
+        "The low-energy block was not laziness. It was a signal that recovery had been underpriced. I kept pushing with a tired mind and then judged the result. The better move is to plan recovery before intensity decides for me.",
+      favorite: false,
+      wordCount: 42,
+    },
+    {
+      id: "identity-note",
+      title: "Identity note",
+      date: "April 30, 2026",
+      time: "06:55",
+      mood: "Reflective",
+      tags: ["identity", "discipline"],
+      prompt: "Who am I becoming through repetition?",
+      excerpt:
+        "Discipline feels less dramatic when I treat it as identity evidence, not punishment.",
+      body:
+        "Discipline feels less dramatic when I treat it as identity evidence, not punishment. Each small repeat is a vote. I do not need the day to feel inspiring; I need the next action to be aligned.",
+      favorite: true,
+      wordCount: 37,
+    },
+    {
+      id: "attention-audit",
+      title: "Attention audit",
+      date: "April 29, 2026",
+      time: "20:25",
+      mood: "Focused",
+      tags: ["focus", "planning", "self-awareness"],
+      prompt: "Where did my attention leak?",
+      excerpt:
+        "The biggest leak was not distraction itself. It was switching without deciding.",
+      body:
+        "The biggest leak was not distraction itself. It was switching without deciding. I moved between tasks as if motion meant progress. Tomorrow needs fewer open loops and a clearer end point for the first work block.",
+      favorite: false,
+      wordCount: 39,
+    },
+  ],
+};
 
 export const timelineEvents = [
   {
