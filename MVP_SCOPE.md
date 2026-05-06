@@ -63,3 +63,32 @@ Important:
 - Use #5FB5D6 as the only accent
 - Use JetBrains Mono for headings, labels, stats, nav
 - Use Inter for body text
+
+# Phase 2 Scope
+
+After Phase 1 is complete, add these pages:
+
+1. Health
+2. Learning
+3. Finance
+4. Relationships
+5. Travel & Memories
+6. Future Self
+7. Year-in-Review
+
+## Phase 2 Purpose
+
+Expand the dashboard from daily self-tracking into a complete personal life system.
+
+Track:
+- Body and wellness
+- Knowledge and skills
+- Money and responsibility
+- People and relationships
+- Places and memories
+- Long-term identity
+- Yearly reflection
+
+Use mock data first.
+Do not add backend yet unless Phase 1 already has persistence.
+Follow design.md exactly.

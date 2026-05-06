@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { navigationItems } from "@/data/mock/navigation";
+import { navigationGroups } from "@/data/mock/navigation";
 import { cn } from "@/lib/utils";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -35,7 +35,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
       {open ? (
         <div className="fixed inset-0 z-30 bg-background px-5 py-6 lg:hidden">
-          <div className="mt-12">
+          <div className="mt-12 h-[calc(100%-3rem)]">
             <SidebarContent
               pathname={pathname}
               onNavigate={() => setOpen(false)}
@@ -76,32 +76,48 @@ function SidebarContent({
         </p>
       </div>
 
-      <nav className="mt-7 flex flex-col gap-1" aria-label="Primary navigation">
-        {navigationItems.map((item) => {
-          const active =
-            item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-          const Icon = item.icon;
+      <nav
+        className="mt-7 min-h-0 flex-1 overflow-y-auto pr-1"
+        aria-label="Primary navigation"
+      >
+        <div className="space-y-6">
+          {navigationGroups.map((group) => (
+            <div key={group.title}>
+              <p className="mb-2 px-3 font-mono text-xs uppercase tracking-normal text-muted">
+                {group.title}
+              </p>
+              <div className="flex flex-col gap-1">
+                {group.items.map((item) => {
+                  const active =
+                    item.href === "/"
+                      ? pathname === "/"
+                      : pathname.startsWith(item.href);
+                  const Icon = item.icon;
 
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={onNavigate}
-              className={cn(
-                "flex h-11 items-center gap-3 rounded-md px-3 font-mono text-xs text-muted transition",
-                "hover:bg-surface hover:text-foreground",
-                active &&
-                  "border border-accent bg-surface text-accent shadow-[inset_0_0_0_1px_var(--color-accent)]",
-              )}
-            >
-              <Icon size={17} strokeWidth={1.8} />
-              <span>{item.title}</span>
-            </Link>
-          );
-        })}
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={onNavigate}
+                      className={cn(
+                        "flex h-11 items-center gap-3 rounded-md px-3 font-mono text-xs text-muted transition",
+                        "hover:bg-surface hover:text-foreground",
+                        active &&
+                          "border border-accent bg-surface text-accent shadow-[inset_0_0_0_1px_var(--color-accent)]",
+                      )}
+                    >
+                      <Icon size={17} strokeWidth={1.8} />
+                      <span>{item.title}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
       </nav>
 
-      <div className="mt-auto border-t border-border pt-6">
+      <div className="mt-6 border-t border-border pt-6">
         <p className="font-mono text-xs uppercase tracking-normal text-muted">
           Current focus
         </p>
